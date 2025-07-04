@@ -98,7 +98,7 @@ Configure DB connection via `.envrc`. Example provided in `.envrc.example`.
 ## ✅ Assumptions
 
 * You use `direnv` for ENV management (no `.env`)
-* You develop with Docker + Homebrew + Go 1.22+
+* You develop with Docker + Homebrew + Go 1.24+
 * You prefer CLI bootstrapping over Make-based setup
 * You want full control over what gets wired in
 

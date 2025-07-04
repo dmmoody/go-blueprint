@@ -12,7 +12,10 @@ func Start() {
 
 	// Basic health route
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("OK"))
+		_, err := w.Write([]byte("OK"))
+		if err != nil {
+			log.Printf("failed to write response: %v", err)
+		}
 	})
 
 	log.Println("🌐 API server listening on :8080")
