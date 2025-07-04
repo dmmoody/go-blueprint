@@ -1,6 +1,6 @@
 BINARY_NAME := go-blueprint
 BIN_DIR := bin
-GO_VERSION := 1.22.3
+GO_VERSION := 1.24.4
 DOCKER_IMAGE := $(BINARY_NAME):dev
 DOCKER_CONTAINER := $(BINARY_NAME)-container
 
@@ -30,3 +30,7 @@ docker-run:
 docker-down:
 	@echo "🧹 Stopping and removing container..."
 	docker rm -f $(DOCKER_CONTAINER) || true
+
+lint:
+	@echo "🔍 Running golangci-lint..."
+	golangci-lint run --concurrency=1 ./...

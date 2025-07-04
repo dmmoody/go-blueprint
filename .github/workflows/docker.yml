@@ -1,0 +1,21 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Docker Build
+        run: |
+          docker build \
+            --build-arg GO_VERSION=1.24.4 \
+            --build-arg APP_NAME=go-blueprint \
+            -f Dockerfile \
+            -t go-blueprint:test .
